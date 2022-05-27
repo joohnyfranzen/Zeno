@@ -6,16 +6,16 @@ const User = db.define('User', {
 
     name: {
         type: DataTypes.STRING,
-        require: true
+        require: true,
     },
     email: {
         type: DataTypes.STRING,
-        require: true
+        require: true,
     },
     senha: {
         type: DataTypes.STRING,
-        require: true
+        require: true,
     },     
 })
 
-module.export = User
+module.exports = User

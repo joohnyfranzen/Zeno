@@ -11,7 +11,7 @@ const app = express()
 const conn = require('./db/conn')
 
 //  Models
-const Driver = require('./models/Driver')
+const Post = require('./models/Post')
 const User = require('./models/User')
 
 //  Template Engine

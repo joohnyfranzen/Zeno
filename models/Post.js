@@ -4,7 +4,7 @@ const db = require('../db/conn')
 
 const User = require('./User')
 
-const Driver = db.define('Driver', {
+const Post = db.define('Post', {
     title: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -12,7 +12,7 @@ const Driver = db.define('Driver', {
     },
 })
 
-Driver.belongsTo(User)
-User.hasMany(Driver)
+Post.belongsTo(User)
+User.hasMany(Post)
 
-module.exports = Driver
+module.exports = Post
