@@ -26,11 +26,12 @@ app.use(
 )
 
 // Data in json
-app.use(express.json)
+app.use(express.json())
 
 //  Routes Import
-
-//  Controler Import
+const postsRoutes = require('./routes/postsRoutes')
+const authRoutes = require('./routes/authRoutes')
+const PostController = require('./controllers/PostController')
 
 //  Body Response
 
@@ -55,7 +56,7 @@ app.use(
 )
 
 //  Flash Messages
-app.use(flash)
+app.use(flash())
  
 //  Public Path
 app.use(express.static('public'))
@@ -69,7 +70,10 @@ app.use((req, res, next) => {
 })
 
 //  Routes
+app.use('/posts', postsRoutes)
+app.use('/', authRoutes)
 
 
+app.get('/', PostController.showPosts)
 //  Connect
-conn.sync({ force: true }).then(() => { app.listen(3000)}).catch((err) => console.log(err))
+conn.sync().then(() => { app.listen(3000)}).catch((err) => console.log(err))
