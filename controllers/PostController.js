@@ -6,4 +6,10 @@ module.exports = class PostController {
         res.render('./drivercost/home')
 
     }
+    static async dashboard(req, res) {
+        res.render('./drivercost/dashboard')
+    }
+    static async createPost(req, res) {
+        res.render('drivercost/create')
+    }
 }

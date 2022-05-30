@@ -1,6 +1,7 @@
 const User = require('../models/User')
 
 const bcrypt = require('bcryptjs')
+
 const req = require('express/lib/request')
 module.exports = class AuthController {
 

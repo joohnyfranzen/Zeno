@@ -11,6 +11,7 @@ const app = express()
 const conn = require('./db/conn')
 
 //  Models
+const Other = require('./models/Other')
 const Post = require('./models/Post')
 const User = require('./models/User')
 
@@ -31,7 +32,7 @@ app.use(express.json())
 //  Routes Import
 const postsRoutes = require('./routes/postsRoutes')
 const authRoutes = require('./routes/authRoutes')
-const PostController = require('./controllers/PostController')
+const otherRoutes = require('./routes/otherRoutes')
 
 //  Body Response
 
@@ -72,8 +73,8 @@ app.use((req, res, next) => {
 //  Routes
 app.use('/posts', postsRoutes)
 app.use('/', authRoutes)
+app.use('/', otherRoutes)
 
 
-app.get('/', PostController.showPosts)
 //  Connect
 conn.sync().then(() => { app.listen(3000)}).catch((err) => console.log(err))
