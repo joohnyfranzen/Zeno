@@ -3,7 +3,7 @@ const User = require('../models/User')
 
 module.exports = class PostController {
     static async showPosts(req, res) {
-        res.render('./drivercost/home')
+        res.render('./posts/home')
 
     }
     static async dashboard(req, res) {
@@ -11,21 +11,26 @@ module.exports = class PostController {
 
         const user = await User.findOne({
             where: {
-                id: userid
-            }
+                id: userid,
+            },
+            include: Post,
+            plain: true,
         })
         // check if user exists
         if(!user) {
             res.redirect('/login')
         }
-    }
+
+        const posts = user.Posts.map((result) => result.dataValues)
+
+        console.log(posts)
 
 
-    static async dashboard(req, res) {
-        res.render('./drivercost/dashboard')
+        res.render('./posts/dashboard', { posts })
     }
+
     static async createPost(req, res) {
-        res.render('drivercost/create')
+        res.render('posts/create')
     }
     static async createPostSave(req, res) {
         const post = {

@@ -1,0 +1,19 @@
+<div class="dashboard">
+    <div class="title-container">
+        <h2>Dashboard</h2>
+        <a href="/posts/add" class="btn">Postar</a>
+    </div>
+    <h3>Suas postagens</h3>
+        <ul>
+            {{#each posts}}
+                <li id="dashboardTitle">
+                    Titulo: <br><br>
+                    {{this.title}}
+                </li>
+                <li id="subject">
+                    Sobre: <br><br>
+                    {{this.subject}}
+                </li>
+            {{/each}}
+        </ul>
+</div>
