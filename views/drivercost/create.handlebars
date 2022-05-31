@@ -1,11 +1,15 @@
 <div class="auth-container">
-    <a href="../posts/dashboard">Voltar</a>
+    <a href="../drivercost/dashboard">Voltar</a>
     <h1>Postando:</h1>
     <br>    
-    <form action="/drivercost/add" method="POST">
+    <form action="add" method="POST">
         <div class="form-control">
         <label for="title">Título:</label>
         <input type="text" name="title" placeholder="Digite a tag da postagem">
+        </div>
+        <div class="form-control">
+        <label for="subject">Assunto:</label>
+        <input type="text" name="subject" placeholder="O que você está pensando?">
         </div>
         <input type="submit" value="Postar">
     </form>
